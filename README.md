@@ -13,3 +13,11 @@ It doesn't intend to MITM TLS traffic in the traditional sense and performs no c
 Think of it like the HTTPS proxy CONNECT with Squid, but without the need to configure the clients.
 
 The data it is possible to log is roughtly the same as HTTPS CONNECT with Squid, but in this POC we don't log duration or bytes transferred.
+
+EDIT: Apprently I'm an idiot and Squid already supports this since 3.5
+
+```
+https_port 3130 intercept ssl-bump
+ssl_bump peek all
+ssl_bump splice all
+```
